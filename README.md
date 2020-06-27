@@ -11,6 +11,19 @@ You can run your application in dev mode that enables live coding using:
 ./mvnw quarkus:dev
 ```
 
+```
+สั่ง build เป้น Container Native Linux ด้วย Graal VM
+mvn package -Pnative -Dquarkus.native.container-build=true
+
+สั่ง Build Docker Image โดยนำ Native Container Binary เข้าไปใน Docker Image
+
+docker build -f src/main/docker/Dockerfile.native -t quarkus/getting-started .
+
+สั่งรัน Dcoekr Image ด้วยคำสั่งนี้
+
+docker run -i --rm -p 8080:8080 quarkus/getting-started
+```
+
 ## Packaging and running the application
 
 The application can be packaged using `./mvnw package`.
